@@ -338,7 +338,7 @@ foreach ($result as $row) {
 	</div>
 </div>
 
-<div class="nav" >
+<div class="nav" style="box-shadow: 0 10px 20px rgba(0,0,0,.6), 0 4px 8px rgba(0,0,0,.6);" >
 	<div class="container">
 		<div class="row" "> 
 			<div class="col-md-12 pl_0 pr_0">

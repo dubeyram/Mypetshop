@@ -91,15 +91,34 @@ foreach ($result as $row)
 
 </div>
 <style type="text/css">
-    .zoomin img {
-        border:2px ;
-          transition: transform .2s; /* Animation */
-  
-  margin: 0 auto;
-    }
-    .zoomin img:hover {
-        transform: scale(.5);
-    }
+    .photo{
+    border-radius: 4px;
+    background: #fff;
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 1px 1px 1px 1px;
+  cursor: pointer;
+  mix-blend-mode: multiply;
+}
+
+.photo:hover{
+     transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,.6), 0 4px 8px rgba(0,0,0,.6);
+}
+
+
+
+.photo{
+      background-repeat: no-repeat;
+    background-position: right;
+}
+
+
+
+@media(max-width: 990px){
+  .photo{
+    margin-bottom: 5px;
+  }
+} 
   </style>
 
 <?php if($home_service_on_off == 1): ?>
@@ -112,7 +131,7 @@ foreach ($result as $row)
                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
                 foreach ($result as $row) {
                     ?>
-                    <div class="col-sm-2 col-4 col-xs-4 zoomin">
+                    <div class="col-sm-2 col-4 col-xs-4 ">
                         <div class="item">
                             <div class="photo" ><img src="assets/uploads/<?php echo $row['photo']; ?>" alt="<?php echo $row['title']; ?>" style="mix-blend-mode: multiply;width: 100%; height:auto; "></div>
                             <!-- <h3><?php echo $row['title']; ?></h3>
