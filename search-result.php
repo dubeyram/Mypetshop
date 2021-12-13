@@ -20,24 +20,29 @@ foreach ($result as $row) {
     $banner_search = $row['banner_search'];
 }
 ?>
-
+<style>
+@media(max-width: 990px){
+  .photo, .page-banner{
+    padding: 40px;
+  }
+} 
+  </style>
 <div class="page-banner" style="background-image: url(assets/uploads/<?php echo $banner_search; ?>);">
-    <div class="overlay"></div>
     <div class="inner">
-        <h1>
+        <h6 style="color:black; text-align: center;">
             Search By: 
             <?php 
                 $search_text = strip_tags($_REQUEST['search_text']); 
                 echo $search_text; 
             ?>            
-        </h1>
+        </h6>
     </div>
 </div>
 
 <div class="page">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12 ">
                 <div class="product product-cat">
 
                     <div class="row">

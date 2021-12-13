@@ -245,7 +245,7 @@ foreach ($result as $row) {
 <div class="top">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-12">
+			<div class="col-md-6 col-6 col-xs-6">
 				<div class="left">
 					<ul>
 						<li><i class="fa fa-phone"></i> <?php echo $contact_phone; ?></li>
@@ -253,7 +253,7 @@ foreach ($result as $row) {
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-6 col-sm-6 col-xs-12">
+			<div class="col-md-6 col-sm-6 col-xs-6">
 				<div class="right">
 					<ul>
 						<?php
@@ -263,7 +263,7 @@ foreach ($result as $row) {
 						foreach ($result as $row) {
 							?>
 							<?php if($row['social_url'] != ''): ?>
-							<li><a href="<?php echo $row['social_url']; ?>"><i class="<?php echo $row['social_icon']; ?>"></i></a></li>
+							<li><a style="background-color:white" href="<?php echo $row['social_url']; ?>"><i class="<?php echo $row['social_icon']; ?>"></i></a></li>
 							<?php endif; ?>
 							<?php
 						}
@@ -280,7 +280,7 @@ foreach ($result as $row) {
 	<div class="container">
 		<div class="row inner">
 			<div class="col-md-4 logo">
-				<a href="index.php"><img src="assets/uploads/<?php echo $loogo; ?>" alt="logo image"></a>
+				<a href="index.php"><img src="assets/uploads/<?php echo $logo; ?>" alt="logo image"></a>
 			</div>
 			
 			<div class="col-md-5 right">
@@ -331,19 +331,18 @@ foreach ($result as $row) {
 					<div class="form-group">
 						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text">
 					</div>
-					<button type="submit" class="btn btn-default"><?php echo LANG_VALUE_3; ?></button>
+					<button type="submit" class="btn btn-default" style="background-color: #ef6c00;color:white" ><?php echo LANG_VALUE_3; ?></button>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="nav" style="box-shadow: 0 10px 20px rgba(0,0,0,.6), 0 4px 8px rgba(0,0,0,.6);" >
-	<div class="container">
-		<div class="row" "> 
+<div class="nav" style="margin: 5px 20px 15px 20px;">
+		<div class="row"> 
 			<div class="col-md-12 pl_0 pr_0">
 				<div class="menu-container" >
-					<div class="menu" >
+					<div class="menu"  >
 						<ul>
 							<li><a href="index.php">Home</a></li>
 							

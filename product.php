@@ -290,7 +290,6 @@ if($success_message1 != '') {
 }
 ?>
 
-
 <div class="page">
 	<div class="container">
 		<div class="row">
@@ -314,8 +313,8 @@ if($success_message1 != '') {
 						<div class="col-md-5">
 							<ul class="prod-slider">
                                 
-								<li style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>);">
-                                    <a class="popup" href="assets/uploads/<?php echo $p_featured_photo; ?>"></a>
+								<li style="background-size:100% 100%;background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>); height:300px">
+                                    <a class="popup " style="height:100%" href="assets/uploads/<?php echo $p_featured_photo; ?>"></a>
 								</li>
                                 <?php
                                 $statement = $pdo->prepare("SELECT * FROM tbl_product_photo WHERE p_id=?");
@@ -323,8 +322,8 @@ if($success_message1 != '') {
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($result as $row) {
                                     ?>
-                                    <li style="background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>);">
-                                        <a class="popup" href="assets/uploads/product_photos/<?php echo $row['photo']; ?>"></a>
+                                    <li style="background-size:100% 100%;background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>);">
+                                        <a class="popup" style="height:100%" href="assets/uploads/product_photos/<?php echo $row['photo']; ?>"></a>
                                     </li>
                                     <?php
                                 }
@@ -663,7 +662,7 @@ if($success_message1 != '') {
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12">
 
                 <div class="product-carousel">
 

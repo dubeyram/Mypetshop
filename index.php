@@ -48,10 +48,16 @@ foreach ($result as $row)
         }
         ?>
     </ol>
-
+    <style>
+    @media(max-width: 680px){
+   .item{
+    padding: 10px;    
+    background-size: 100% 100%;
+  }
+} </style>
     <!-- Wrapper For Slides -->
-    <div class="carousel-inner" role="listbox">
-
+    <div class="carousel-inner sliders" role="listbox">
+    
         <?php
         $i=0;
         $statement = $pdo->prepare("SELECT * FROM tbl_slider");
@@ -59,12 +65,12 @@ foreach ($result as $row)
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
         foreach ($result as $row) {            
             ?>
-            <div class="item <?php if($i==0) {echo 'active';} ?>" style="background-image:url(assets/uploads/<?php echo $row['photo']; ?>);">
-                <div class="bs-slider-overlay"></div>
+            <div class="item <?php if($i==0) {echo 'active';} ?>" style="background-image:url(assets/uploads/<?php echo $row['photo']; ?>); ">
+            
                 <div class="container">
                     <div class="row">
                         <div class="slide-text <?php if($row['position'] == 'Left') {echo 'slide_style_left';} elseif($row['position'] == 'Center') {echo 'slide_style_center';} elseif($row['position'] == 'Right') {echo 'slide_style_right';} ?>">
-                            <h1 data-animation="animated <?php if($row['position'] == 'Left') {echo 'zoomInLeft';} elseif($row['position'] == 'Center') {echo 'flipInX';} elseif($row['position'] == 'Right') {echo 'zoomInRight';} ?>"><?php echo $row['heading']; ?></h1>
+                            <h2 data-animation="animated <?php if($row['position'] == 'Left') {echo 'zoomInLeft';} elseif($row['position'] == 'Center') {echo 'flipInX';} elseif($row['position'] == 'Right') {echo 'zoomInRight';} ?>"><?php echo $row['heading']; ?></h2>
                             <p data-animation="animated <?php if($row['position'] == 'Left') {echo 'fadeInLeft';} elseif($row['position'] == 'Center') {echo 'fadeInDown';} elseif($row['position'] == 'Right') {echo 'fadeInRight';} ?>"><?php echo nl2br($row['content']); ?></p>
                             <a href="<?php echo $row['button_url']; ?>" target="_blank"  class="btn btn-primary" data-animation="animated <?php if($row['position'] == 'Left') {echo 'fadeInLeft';} elseif($row['position'] == 'Center') {echo 'fadeInDown';} elseif($row['position'] == 'Right') {echo 'fadeInRight';} ?>"><?php echo $row['button_text']; ?></a>
                         </div>
@@ -94,46 +100,37 @@ foreach ($result as $row)
     .photo{
     border-radius: 4px;
     background: #fff;
-      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
-  padding: 1px 1px 1px 1px;
-  cursor: pointer;
-  mix-blend-mode: multiply;
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    padding: 1px 1px 1px 1px;
+    cursor: pointer;
+    
 }
 
-.photo:hover{
-     transform: scale(1.02);
-  box-shadow: 0 10px 20px rgba(0,0,0,.6), 0 4px 8px rgba(0,0,0,.6);
+.photo:hover, .item:hover{
+    transform: scale(1.02);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-
-
 
 .photo{
       background-repeat: no-repeat;
     background-position: right;
 }
 
-
-
-@media(max-width: 990px){
-  .photo{
-    margin-bottom: 5px;
-  }
-} 
   </style>
 
 <?php if($home_service_on_off == 1): ?>
 <div class="service bg-gray">
     <div class="container">
-        <div class="row">
+        <div class="row" >
             <?php
                 $statement = $pdo->prepare("SELECT * FROM tbl_service");
                 $statement->execute();
                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
                 foreach ($result as $row) {
                     ?>
-                    <div class="col-sm-2 col-4 col-xs-4 ">
+                    <div class="col-sm-2 col-4 col-xs-4 " style="padding-right: 0px;padding-left: 0px;">
                         <div class="item">
-                            <div class="photo" ><img src="assets/uploads/<?php echo $row['photo']; ?>" alt="<?php echo $row['title']; ?>" style="mix-blend-mode: multiply;width: 100%; height:auto; "></div>
+                            <div class="photo" ><img src="assets/uploads/<?php echo $row['photo']; ?>" alt="<?php echo $row['title']; ?>" style="mix-blend-mode: multiply;width: 100%;  "></div>
                             <!-- <h3><?php echo $row['title']; ?></h3>
                             <p>
                                 <?php echo nl2br($row['content']); ?>
@@ -148,9 +145,10 @@ foreach ($result as $row)
 </div>
 <?php endif; ?>
 
+
 <?php if($home_featured_product_on_off == 1): ?>
-<div class="product pt_70 pb_70">
-    <div class="container">
+<div class="product pt_70 pb_70 bg-gray" >
+    <div class="container" >
         <div class="row">
             <div class="col-md-12">
                 <div class="headline">
@@ -160,7 +158,7 @@ foreach ($result as $row)
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-sm-12 col-12 col-xs-12">
 
                 <div class="product-carousel">
                     
@@ -173,7 +171,6 @@ foreach ($result as $row)
                         <div class="item">
                             <div class="thumb">
                                 <div class="photo" style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);"></div>
-                                <div class="overlay"></div>
                             </div>
                             <div class="text">
                                 <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
@@ -262,7 +259,7 @@ foreach ($result as $row)
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>">Add to Cart</a></p>
+                                    <p ><a style="margin-bottom:0px" href="product.php?id=<?php echo $row['p_id']; ?>">Add to Cart</a></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -277,8 +274,13 @@ foreach ($result as $row)
 <?php endif; ?>
 
 
+
+<div class="page-banner" style="color:black;background-image: url(assets/uploads/slider-1.jpg )">
+   
+    </div>
+
 <?php if($home_latest_product_on_off == 1): ?>
-<div class="product bg-gray pt_70 pb_30">
+<div class="product bg-gray pt_70 pb_30 bg-gray">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -302,7 +304,7 @@ foreach ($result as $row)
                         <div class="item">
                             <div class="thumb">
                                 <div class="photo" style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);"></div>
-                                <div class="overlay"></div>
+                              
                             </div>
                             <div class="text">
                                 <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
@@ -433,7 +435,7 @@ foreach ($result as $row)
                         <div class="item">
                             <div class="thumb">
                                 <div class="photo" style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);"></div>
-                                <div class="overlay"></div>
+                                
                             </div>
                             <div class="text">
                                 <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>

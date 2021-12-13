@@ -120,14 +120,43 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
     }   
 }
 ?>
+<style>
+  .photo{
+    border-radius: 4px;
+    background: #fff;
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 1px 1px 1px 1px;
+  cursor: pointer;
+  
+}
 
-<div class="page-banner" style="background-image: url(assets/uploads/<?php echo $banner_product_category; ?>)">
-    <div class="inner">
-        <h1><?php echo LANG_VALUE_50; ?> <?php echo $title; ?></h1>
+.photo:hover{
+     transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,.6), 0 4px 8px rgba(0,0,0,.6);
+}
+
+
+
+.photo{
+      background-repeat: no-repeat;
+    background-position: right;
+}
+
+
+
+@media(max-width: 990px){
+  .photo, .page-banner{
+    padding: 50px;
+  }
+} 
+</style>
+
+<div class="page-banner" style="color:black;background-image: url(assets/uploads/<?php echo $banner_product_category; ?>)">
+   
     </div>
 </div>
 
-<div class="page">
+<div class="page" style="background-color:#f2f3f3">
     <div class="container">
         <div class="row">
           <div class="col-md-3">
@@ -164,19 +193,18 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($result as $row) {
                                     ?>
-                                    <div class="col-md-4 item item-product-cat">
+                                    <div class="col-md-4 col-6 col-xs-6  item item-product-cat" >
                                         <div class="inner">
                                             <div class="thumb">
-                                                <div class="photo" style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);"></div>
-                                                <div class="overlay"></div>
+                                                <div class="photo" style="height:100;background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);"></div>
                                             </div>
                                             <div class="text">
-                                                <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
+                                                <b><h3><a style="display: block;width: 100%;" href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3></b>
                                                 <h4>
-                                                    <?php echo "Rs"; ?><?php echo $row['p_current_price']; ?> 
+                                                    <?php echo "Rs. "; ?><?php echo $row['p_current_price']; ?> 
                                                     <?php if($row['p_old_price'] != ''): ?>
                                                     <del>
-                                                        <?php echo "Rs"; ?><?php echo $row['p_old_price']; ?>
+                                                        <?php echo "Rs. "; ?><?php echo $row['p_old_price']; ?>
                                                     </del>
                                                     <?php endif; ?>
                                                 </h4>
