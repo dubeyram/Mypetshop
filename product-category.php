@@ -145,12 +145,25 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
 
 
 @media(max-width: 990px){
-  .photo, .page-banner{
+  .photo{
     padding: 50px;
   }
 } 
 </style>
-
+<style>
+    @media screen and (max-width: 700px) {
+    .page-banner{
+        height:240px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100%;
+        position: relative;
+        padding-top: 140px;
+        overflow: hidden;
+    }
+  }
+</style>
 <div class="page-banner" style="color:black;background-image: url(assets/uploads/<?php echo $banner_product_category; ?>)">
    
     </div>
@@ -199,7 +212,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                                                 <div class="photo" style="height:100;background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);"></div>
                                             </div>
                                             <div class="text">
-                                                <b><h3><a style="display: block;width: 100%;" href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3></b>
+                                                <h3><a style="display: block;width: 100%;" href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                                 <h4>
                                                     <?php echo "Rs. "; ?><?php echo $row['p_current_price']; ?> 
                                                     <?php if($row['p_old_price'] != ''): ?>

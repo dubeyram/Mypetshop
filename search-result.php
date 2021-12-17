@@ -22,20 +22,34 @@ foreach ($result as $row) {
 ?>
 <style>
 @media(max-width: 990px){
-  .photo, .page-banner{
+  .photo{
     padding: 40px;
   }
 } 
   </style>
+<style>
+    @media screen and (max-width: 700px) {
+    .page-banner{
+        height:240px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100%;
+        position: relative;
+        padding-top: 140px;
+        overflow: hidden;
+    }
+  }
+</style>
 <div class="page-banner" style="background-image: url(assets/uploads/<?php echo $banner_search; ?>);">
     <div class="inner">
-        <h6 style="color:black; text-align: center;">
+        <h5 style="color:black bold; text-align: center;margin-top:-50px">
             Search By: 
             <?php 
                 $search_text = strip_tags($_REQUEST['search_text']); 
                 echo $search_text; 
             ?>            
-        </h6>
+        </h5>
     </div>
 </div>
 
@@ -164,10 +178,10 @@ foreach ($result as $row) {
                                         <div class="text">
                                             <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                             <h4>
-                                                $<?php echo $row['p_current_price']; ?> 
+                                                Rs.<?php echo $row['p_current_price']; ?> 
                                                 <?php if($row['p_old_price'] != ''): ?>
                                                 <del>
-                                                    $<?php echo $row['p_old_price']; ?>
+                                                    Rs.<?php echo $row['p_old_price']; ?>
                                                 </del>
                                                 <?php endif; ?>
                                             </h4>

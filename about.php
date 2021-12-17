@@ -10,11 +10,22 @@ foreach ($result as $row) {
     $about_banner = $row['about_banner'];
 }
 ?>
-
+<style>
+    @media screen and (max-width: 700px) {
+    .page-banner{
+       height:160px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        position: relative;
+        padding-top: 110px;
+        overflow: hidden;
+    }
+  }
+</style>
 <div class="page-banner" style="background-image: url(assets/uploads/<?php echo $about_banner; ?>);">
-    <div class="inner">
-        <h1><?php echo $about_title; ?></h1>
-    </div>
+   
 </div>
 
 <div class="page">

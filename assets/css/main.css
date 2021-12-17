@@ -23,7 +23,7 @@ a {
 }
 
 .clear {
-    clear: both;
+    clear: none;
 }
 
 .ovh {
@@ -260,7 +260,7 @@ a:hover {
 }
 
 .menu>ul:after {
-    clear: both;
+    clear: none;
 }
 
 .menu>ul>li {
@@ -319,7 +319,7 @@ a:hover {
 }
 
 .menu>ul>li>ul:after {
-    clear: both;
+    clear: none;
 }
 
 .menu>ul>li>ul>li {
@@ -594,9 +594,8 @@ Mobile style's
 
 .product .text h3 a {
     color: black;
-    font-weight: 400;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 500;
+    font-size: 12px;
     line-height: 1.5;
 }
 
@@ -607,7 +606,7 @@ Mobile style's
 .product .text h4 {
     color: #08870f;
     text-align: center;
-    font-size: 18px bolder;
+    font-size: 18px bold;
 }
 
 .product .text p {
@@ -689,7 +688,7 @@ Mobile style's
 }
 
 .product-cat {
-    padding-top: 14px;
+    padding-top: 1px;
 }
 
 .product-cat .item {
@@ -697,8 +696,8 @@ Mobile style's
 }
 
 .product .item-product-cat {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 7px;
+    padding-right: 7px;
     border: 0;
 }
 
@@ -719,11 +718,11 @@ Mobile style's
 }
 
 .product .item-search-result:nth-of-type(4n+1) {
-    clear: both;
+    clear: none;
 }
 
 .product .item-product-cat:nth-of-type(3n+1) {
-    clear: both;
+    clear: none;
 }
 
 .testimonial-v1 {
@@ -1225,7 +1224,7 @@ ul.nav-tabs {
     background-repeat: no-repeat;
     background-position: center center;
     -webkit-background-size: cover;
-    background-size: cover;
+    background-size: 100% 100%;
     position: relative;
     padding-top: 300px;
     overflow: hidden;
@@ -1242,7 +1241,7 @@ ul.nav-tabs {
 }
 
 .page-banner h1 {
-    color: #fff;
+    color: black;
     text-align: center;
     z-index: 999;
     position: relative;
@@ -2207,7 +2206,7 @@ div.pagination span.disabled {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: 100% 100%;
-    height: 200px;
+    height: 300px;
 }
 
 .home-newsletter {
@@ -2243,4 +2242,22 @@ div.pagination span.disabled {
     color: #fff;
     padding-left: 15px;
     padding-right: 15px;
+}
+
+@media screen and (max-width: 700px) {
+    .bs-slider .item {
+        height: 180px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .top .left {
+        width: 180px;
+        font-size: 12px;
+    }
 }

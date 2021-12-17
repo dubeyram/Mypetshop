@@ -248,12 +248,12 @@ foreach ($result as $row) {
 			<div class="col-md-6 col-6 col-xs-6">
 				<div class="left">
 					<ul>
-						<li><i class="fa fa-phone"></i> <?php echo $contact_phone; ?></li>
-						<li><i class="fa fa-envelope-o"></i> <?php echo $contact_email; ?></li>
+						<a href="tel:+918851164459"><li><i class="fa fa-phone" ></i> <?php echo $contact_phone; ?></li></a>
+						<a href="mailto:dubey233310@gmail.com"><li><i class="fa fa-envelope-o"></i> <?php echo $contact_email; ?></li></a>
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-6 col-sm-6 col-xs-6">
+			<div class="col-md-6 col-sm-5 col-xs-5">
 				<div class="right">
 					<ul>
 						<?php

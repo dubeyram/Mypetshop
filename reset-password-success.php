@@ -8,7 +8,20 @@ foreach ($result as $row) {
     $banner_forget_password = $row['banner_forget_password'];
 }
 ?>
-
+<style>
+    @media screen and (max-width: 700px) {
+    .page-banner{
+        height:240px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100%;
+        position: relative;
+        padding-top: 140px;
+        overflow: hidden;
+    }
+  }
+</style>
 <div class="page-banner" style="background-color:#444;background-image: url(assets/uploads/<?php echo $banner_forget_password; ?>);">
     <div class="inner">
         <h1><?php echo LANG_VALUE_149; ?></h1>

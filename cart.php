@@ -66,12 +66,22 @@ if(isset($_POST['form1'])) {
 
 }
 ?>
-
+<style>
+    @media screen and (max-width: 700px) {
+    .page-banner{
+        height:240px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100%;
+        position: relative;
+        padding-top: 120px;
+        overflow: hidden;
+    }
+  }
+</style>
 <div class="page-banner" style="background-image: url(assets/uploads/<?php echo $banner_cart; ?>)">
-    <div class="overlay"></div>
-    <div class="page-banner-inner">
-        <h1><?php echo LANG_VALUE_18; ?></h1>
-    </div>
+
 </div>
 
 <div class="page">

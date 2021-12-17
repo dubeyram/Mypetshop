@@ -18,11 +18,22 @@ foreach ($result as $row) {
     $contact_address = $row['contact_address'];
 }
 ?>
-
+<style>
+    @media screen and (max-width: 700px) {
+    .page-banner{
+       height:180px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        position: relative;
+        padding-top: 110px;
+        overflow: hidden;
+    }
+  }
+</style>
 <div class="page-banner" style="background-image: url(assets/uploads/<?php echo $contact_banner; ?>);">
-    <div class="inner">
-        <h1><?php echo $contact_title; ?></h1>
-    </div>
+    
 </div>
 
 <div class="page">

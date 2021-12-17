@@ -31,6 +31,7 @@ foreach ($result as $row)
 
 ?>
 
+
 <div id="bootstrap-touch-slider" class="carousel bs-slider fade control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="false" >
 
     <!-- Indicators -->
@@ -48,15 +49,10 @@ foreach ($result as $row)
         }
         ?>
     </ol>
-    <style>
-    @media(max-width: 680px){
-   .item{
-    padding: 10px;    
-    background-size: 100% 100%;
-  }
-} </style>
+   
+
     <!-- Wrapper For Slides -->
-    <div class="carousel-inner sliders" role="listbox">
+    <div class="carousel-inner" role="listbox" > 
     
         <?php
         $i=0;
@@ -65,7 +61,7 @@ foreach ($result as $row)
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
         foreach ($result as $row) {            
             ?>
-            <div class="item <?php if($i==0) {echo 'active';} ?>" style="background-image:url(assets/uploads/<?php echo $row['photo']; ?>); ">
+            <div class="item <?php if($i==0) {echo 'active';} ?>" style="background-image:url(assets/uploads/<?php echo $row['photo']; ?>);" >
             
                 <div class="container">
                     <div class="row">
@@ -273,7 +269,20 @@ foreach ($result as $row)
 </div>
 <?php endif; ?>
 
-
+<style>
+    @media screen and (max-width: 700px) {
+    .page-banner{
+        height:240px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100%;
+        position: relative;
+        padding-top: 140px;
+        overflow: hidden;
+    }
+  }
+</style>
 
 <div class="page-banner" style="color:black;background-image: url(assets/uploads/slider-1.jpg )">
    
